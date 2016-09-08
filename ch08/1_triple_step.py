@@ -10,6 +10,8 @@
 
 ways = {0: 0, 1:1, 2: 2, 3: 4}
 
+#time complexity: O(n)
+#space complexity: O(n)
 def calculate_ways(steps):
     if steps < 4:
         return ways[steps]
@@ -17,13 +19,15 @@ def calculate_ways(steps):
         ways[i] = ways[i-1] + ways[i-2] + ways[i-3]
     return ways[steps]
 
-ways = {0: 0, 1:1, 2: 2, 3: 4}
-
+#time complexity: O(3^n)
+#space complexity: O(3^n) in terms of stack size. Consider tail recursion?
 def ways_recurse(steps):
     if steps < 4:
         return ways[steps]
     return ways_recurse(steps-1) + ways_recurse(steps-2) + ways_recurse(steps-3)
 
+#time complexity: O(n)
+#space complexity: O(n)
 def ways_recurse(steps):
     if steps not in ways:
         ways[steps] = ways_recurse(steps-1) + ways_recurse(steps-2) + ways_recurse(steps-3)
