@@ -30,3 +30,34 @@ def k_to_last(link_list, k):
 print str(k_to_last(link_list, 1)) + " = 5"
 print str(k_to_last(link_list2, 3)) + " = 4"
 print str(k_to_last(link_list2, 7)) + " = 4"
+
+
+
+# Zack
+# python3
+
+class Cons():
+    def __init__(self, car, cdr):
+        self.car = car
+        self.cdr = cdr
+
+def cons(val, cell):
+    return Cons(val, cell)
+
+def kth_to_last(ls, k):
+    i = 0
+    j = 0
+    kth = None
+    hd = ls
+    while hd.cdr is not None:
+        i += 1
+        if i == k:
+            kth = ls
+        elif i > k:
+            j += 1
+            kth = kth.cdr
+        hd = hd.cdr
+    return (j, kth.car)
+    
+l = cons(1, cons(2, cons(3, cons(4, None))))
+print(kth_to_last(l, 1))
