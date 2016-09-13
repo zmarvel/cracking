@@ -35,3 +35,34 @@ def test():
         
 if __name__ == '__main__':
     test()
+
+
+#Jessie's solution
+# 1 -> 2 -> 3
+
+class StackMin:
+    def __init__(self):
+        self.stack = []
+    def push(self, to_push):
+        if not self.stack or self.stack[-1][1] > to_push:
+            self.stack.append([to_push, to_push])
+        else:
+            self.stack.append([to_push, self.stack[-1][1]])
+    def pop(self):
+        if self.stack == []:
+            return None
+        return self.stack.pop()[0]
+    def min(self):
+        if self.stack == []:
+            return None
+        return self.stack[-1][1]
+    
+my_stack = StackMin()
+my_stack.push(5)
+print my_stack.stack, my_stack.min()
+my_stack.push(6)
+print my_stack.stack, my_stack.min()
+my_stack.push(3)
+print my_stack.stack, my_stack.min()
+my_stack.push(7)
+print my_stack.stack, my_stack.min()
