@@ -7,7 +7,7 @@ def anagram_key(s):
     return store[s]
 
 def group_anagrams(ls):
-    ls = sorted(ls, key=lambda s: anagram_key)
+    ls = sorted(ls, key=anagram_key)
     return ls
 
 def test():
