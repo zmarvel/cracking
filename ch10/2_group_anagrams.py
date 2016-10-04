@@ -1,8 +1,13 @@
 
 
+store = {}
+def anagram_key(s):
+    if s not in store:
+        store[s] = sorted(s)
+    return store[s]
+
 def group_anagrams(ls):
-    store = {}
-    ls = sorted(ls, key=lambda s: store[s] if s in store else sorted(s))
+    ls = sorted(ls, key=lambda s: anagram_key)
     return ls
 
 def test():
